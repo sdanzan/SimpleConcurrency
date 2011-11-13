@@ -1,0 +1,16 @@
+bin
+obj
+test-results
+packages
+built
+
+*.obj
+*.dll
+*.pdb
+*.pidb
+*.suo
+*.user
+*.userprefs
+*.orig
+
+nunit.*

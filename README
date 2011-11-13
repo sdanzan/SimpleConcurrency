@@ -1,0 +1,42 @@
+SimpleConcurrency.NET: a library providing simple implementations of common
+concurrency patterns (actors, futures, thread pool) with easy to use interfaces
+while keeping good performances. 
+
+Sample code is found in the Samples and Test directories. You'll find simple
+examples of the various services provided by the library, as well as an
+implementation of the Thread Ring benchmark.
+
+You can compile the solution with either Visual Studio or MonoDevelop.
+The library should also work with the Mono runtime, however performances are
+rather bad due to horrible threading support.
+
+======================
+SimpleActor
+
+Very simple Actor pattern implementation with a scala-like feel. Actors may
+either 'receive' messages, or 'react' to them just as in the scala actors
+library.
+
+======================
+Future
+
+Straightforward generic implementation of the future pattern. Future are
+statisfied via a property (read access will block until statisfied), can
+receive exceptions, and may be waited for with a time out.
+
+======================
+FairThreadPool
+
+A simple thread pool allowing scheduling of jobs in a "fair" way. Jobs are
+enqueued in the pool associated to a tag. To pick a job to run, the threads
+in the pool cycle through the tags in round robin. Thus you're guaranted
+that jobs associated to a tag are never blocked by a bunch of jobs associated
+to another tag: the pool will alternate between tags when picking jobs from
+its queue.
+
+The interface is simple and allows:
+	- pushing jobs in the pool and forget them.
+	- pushing jobs and wait for completion.
+	- pushing jobs and get a result through use of the Future pattern.
+	- changing the number of threads in the pool at runtime.
+	- multiple thread pools: the FairThreadPool is not a singleton.

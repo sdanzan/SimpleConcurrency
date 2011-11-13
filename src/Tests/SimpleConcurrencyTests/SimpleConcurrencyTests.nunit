@@ -1,0 +1,7 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Release" />
+  <Config name="Debug" binpathtype="Auto" />
+  <Config name="Release" binpathtype="Auto">
+    <assembly path="..\..\..\built\Release\SimpleConcurrencyTests.dll" />
+  </Config>
+</NUnitProject>
