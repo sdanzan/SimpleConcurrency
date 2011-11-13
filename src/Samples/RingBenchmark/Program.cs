@@ -25,7 +25,7 @@ using SimpleConcurrency.Patterns;
 using SimpleConcurrency.ThreadPools;
 
 /*
- * This is an implementation of the ThreadRing adn Parallel ThreadRing
+ * This is an implementation of the ThreadRing and Parallel ThreadRing
  * as described here:
  *      [1] http://shootout.alioth.debian.org/u64q/performance.php?test=threadring
  *      [2] http://www.theron-library.com/index.php?t=page&p=parallelthreadring
@@ -47,13 +47,14 @@ using SimpleConcurrency.ThreadPools;
  * context switches most of the time (you could also use a better scheduler than the ones I use, The 
  * FairThreadPool does not attempt to minimize switching, and neither does the .NET ThreadPool). That
  * does not mean in any way that Simpleconcurrency does better than Erlang: the ThreadRing benchmark is
- * basically just an elaborated "for(i = N; i > 0; i--)" so if force your framework to do that in a single
+ * basically just an elaborated "for(i = N; i > 0; i--)" so if you force your framework to do that in a single
  * thread, obviously it should be fast.
  * 
  * The parallel ThreadRing is another thing entirely, with default options it runs in about 3 sec, with '-f 4' it
  * goes down to 2 sec, and with '-f 1' goes up to 5 sec. It scales linearly with the number of hops.
  * 
- * NOTE: with the Mono runtime performances suck big time. I suspect the thread primitives to be horrible.
+ * NOTE: with the Mono runtime on Mac, performances suck big time. I suspect the thread primitives to be horrible
+ * and quite broken on mono/osx. On Linux it should work fine.
  */
 
 namespace RingBenchmark

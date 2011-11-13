@@ -7,8 +7,7 @@ examples of the various services provided by the library, as well as an
 implementation of the Thread Ring benchmark.
 
 You can compile the solution with either Visual Studio or MonoDevelop.
-The library should also work with the Mono runtime, however performances are
-rather bad due to horrible threading support.
+The library should also work with the Mono runtime.
 
 ======================
 SimpleActor

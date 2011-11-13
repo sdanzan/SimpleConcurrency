@@ -149,7 +149,14 @@ namespace SimpleActorsExamples.PingPong
 
         protected override void Act()
         {
-            React(Y_Combinator((Action<PingPongMessage, SimpleActor<PingPongMessage>> f) => (m, s) => { if (HandleMessage(m, s)) React(f);}));
+#if __MonoCS__
+            // Mono has a hard time infering correct types
+            React(Y_Combinator<PingPongMessage, SimpleActor<PingPongMessage>>((Action<PingPongMessage, SimpleActor<PingPongMessage>> f) => (m, s) => {
+                if (HandleMessage(m, s))
+                    React(f);}));
+#else
+            React(Y_Combinator((Action<PingPongMessage, SimpleActor<PingPongMessage>> f) => (m, s) => { if (HandleMessage(m, s)) React(f); }));
+#endif
         }
     }
 }
