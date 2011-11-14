@@ -150,7 +150,8 @@ namespace RingBenchmark
             Console.WriteLine(@"
 Usage: RingBenchmark [-f NTHREADS] [-p] [-v FEEDBACK] [-e] [-h HOPS] [-r RING]
     --help              Print this message.
-    -f NTHREADS         Do not use the standard .NET thread pool, instead use a FairThreadPool with NTHREADS threads.
+    -f NTHREADS         Do not use the standard scheduler, instead use a FairThreadPoolScheduler with NTHREADS threads if 
+                        NTHREADS > 0, and a TaskScheduler if NTHREADS < 0.            
     -p                  Run the parallel version of the ring. Instead of having one message starting at player 1
                         start with 1 message per player, so that RING messages are running around the ring.
     -v FEEDBACK         Print some feedback every HOPS/FEEDBACK message forwarding. Default is no feedback.
@@ -220,11 +221,17 @@ Usage: RingBenchmark [-f NTHREADS] [-p] [-v FEEDBACK] [-e] [-h HOPS] [-r RING]
             {
                 sched = new FairThreadPoolScheduler(new FairThreadPool("ThreadRing", Config.Receive ? Config.RING_SIZE + Config.Threads : Config.Threads));
             }
-            else
+            else if (Config.Threads == 0)
             {
                 if (Config.Receive)
                     ThreadPool.SetMinThreads(Config.RING_SIZE + 2, Environment.ProcessorCount);
                 sched = new StandardThreadPoolScheduler();
+            }
+            else
+            {
+                if (Config.Receive)
+                    ThreadPool.SetMinThreads(Config.RING_SIZE + 2, Environment.ProcessorCount);
+                sched = new TaskScheduler();
             }
 
             for (int i = 0; i < Config.RING_SIZE; ++i)
@@ -237,7 +244,7 @@ Usage: RingBenchmark [-f NTHREADS] [-p] [-v FEEDBACK] [-e] [-h HOPS] [-r RING]
             Console.WriteLine("Messages: " + Config.N_HOPS);
             Console.WriteLine("Ring size: " + Config.RING_SIZE);
             Console.WriteLine("{0} mode", Config.Receive ? "'Receive'" : "'React'");
-            Console.WriteLine("Using {0}", Config.Threads == 0 ? "Standard .NET ThreadPool" : "FairThreadPool (" + Config.Threads + ")");
+            Console.WriteLine("Using {0}", Config.Threads == 0 ? "Standard .NET ThreadPool" : Config.Threads < 0 ? "Task Scheduler" : "FairThreadPool (" + Config.Threads + ")");
 
             if (Config.Parallel)
             {

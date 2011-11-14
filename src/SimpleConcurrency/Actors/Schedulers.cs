@@ -41,6 +41,21 @@ namespace SimpleConcurrency.Actors
     }
 
     /// <summary>
+    /// A simple scheduler using TPL.
+    /// </summary>
+    public class TaskScheduler : IScheduler
+    {
+        /// <summary>
+        /// Create a task associated with the provided action and start it.
+        /// </summary>
+        /// <param name="action">Job to schedule.</param>
+        public void Schedule(Action action)
+        {
+            Task.Factory.StartNew(action);
+        }
+    }
+
+    /// <summary>
     /// A scheduler using a provided FairThreadPool
     /// </summary>
     public class FairThreadPoolScheduler : IScheduler
