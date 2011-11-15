@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+# Visual Web Developer Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleConcurrency", "SimpleConcurrency\SimpleConcurrency.csproj", "{001E2140-8295-4F7F-8046-EF580D62635F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleConcurrencyTests", "Tests\SimpleConcurrencyTests\SimpleConcurrencyTests.csproj", "{DC418B7D-09B6-4223-8E95-A02F3E57BA04}"
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RingBenchmark", "Samples\RingBenchmark\RingBenchmark.csproj", "{C6B50BE6-5A9D-4F68-B3ED-DAFAE9B76949}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralExamples", "Samples\GeneralExamples\GeneralExamples.csproj", "{E1257178-F6DD-4914-861C-C9CEA7980B0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringRingBenchmark", "Samples\StringRingBenchmark\StringRingBenchmark.csproj", "{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,16 +63,26 @@ Global
 		{C6B50BE6-5A9D-4F68-B3ED-DAFAE9B76949}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C6B50BE6-5A9D-4F68-B3ED-DAFAE9B76949}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C6B50BE6-5A9D-4F68-B3ED-DAFAE9B76949}.Release|x86.ActiveCfg = Release|Any CPU
-		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Debug|x86.ActiveCfg = Debug|x86
-		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Debug|x86.Build.0 = Debug|x86
-		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Release|Any CPU.ActiveCfg = Release|x86
-		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Release|Mixed Platforms.Build.0 = Release|x86
-		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Release|x86.ActiveCfg = Release|x86
-		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Release|x86.Build.0 = Release|x86
+		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E1257178-F6DD-4914-861C-C9CEA7980B0E}.Release|x86.ActiveCfg = Release|Any CPU
+		{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{38D7ABB1-B1D5-4449-A597-D42B5B33CECF}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
