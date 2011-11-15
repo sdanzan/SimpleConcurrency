@@ -56,7 +56,7 @@ namespace SimpleConcurrency.Actors
         /// </summary>
         protected SimpleActor()
         {
-            _scheduler = new StandardThreadPoolScheduler();
+            _scheduler = __standardScheduler;
         }
 
         /// <summary>
@@ -327,6 +327,8 @@ namespace SimpleConcurrency.Actors
         Queue<Tuple<TMessage, SimpleActor<TMessage>>> _messages = new Queue<Tuple<TMessage, SimpleActor<TMessage>>>();
         Action<TMessage, SimpleActor<TMessage>> _currentHandler;
         IScheduler _scheduler;
+
+        static StandardThreadPoolScheduler __standardScheduler = new StandardThreadPoolScheduler();
     }
 
     /// <summary>
