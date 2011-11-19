@@ -42,6 +42,7 @@
     <Compile Include="PingPong.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RockPaperSissors.cs" />
     <Compile Include="SimpleLoop.cs" />
   </ItemGroup>
   <ItemGroup>

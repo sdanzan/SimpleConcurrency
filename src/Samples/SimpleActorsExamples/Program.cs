@@ -82,6 +82,23 @@ namespace SimpleActorsExamples
                 pp[1].Start();
                 idx = rng.Next(2);
                 pp[idx].Post(PingPongMessage.Ping, pp[1 - idx]);
+
+                Ask();
+
+                var player1 = new RPSPlayer("Player 1");
+                player1.Start();
+                var player2 = new RPSPlayer("Player 2");
+                player2.Start();
+                var referee = new RPSCoordinator();
+                referee.Start();
+
+                player1.Post(new RPSMessage() { Order = RPSMessage.RPS.Go }, referee);
+                player2.Post(new RPSMessage() { Order = RPSMessage.RPS.Go }, referee);
+
+                System.Threading.Thread.Sleep(7456);
+                player1.Post(new RPSMessage() { Order = RPSMessage.RPS.End });
+                player2.Post(new RPSMessage() { Order = RPSMessage.RPS.End });
+                referee.Post(new RPSMessage() { Order = RPSMessage.RPS.End });
             }
             catch (Exception ex)
             {
