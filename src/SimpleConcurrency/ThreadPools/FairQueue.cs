@@ -166,12 +166,12 @@ namespace SimpleConcurrency.ThreadPools
                 Content = self;
             }
 
-            public int Tag;
-            public Queue<TData> Content;
+            public readonly int Tag;
+            public readonly Queue<TData> Content;
             public LinkedQueue Next;
         }
 
-        Dictionary<int, LinkedQueue> _queues = new Dictionary<int, LinkedQueue>();
+        readonly Dictionary<int, LinkedQueue> _queues = new Dictionary<int, LinkedQueue>();
         LinkedQueue _head;
         LinkedQueue _tail;
         int _count;
